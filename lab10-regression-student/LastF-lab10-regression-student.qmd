@@ -121,6 +121,7 @@ gf_point(bill_depth_mm ~ bill_length_mm, data = penguins,
          xlab = "Bill Length (mm)",
          ylab = "Palmer Penguin Bill Depth (mm)", 
          color= ~ sex) |>
+  gf_lm() |> 
   gf_theme(theme_bw())
 ```
 
