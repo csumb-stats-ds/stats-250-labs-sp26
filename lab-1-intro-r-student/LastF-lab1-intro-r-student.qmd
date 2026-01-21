@@ -1,0 +1,270 @@
+---
+title: "Lab 1: Introduction to R"
+author: "NAME"
+format: html
+embed-resources: true
+html-math-method: mathml
+execute: 
+  warning: false
+  echo: true
+  error: false
+---
+
+
+## Skills
+
+* Demonstrate basic skills in R coding
+* Recognize R syntax to decode new R commands
+* Be able to identify basic data types in R and how to encode them (see Primer)
+* Be able to create and manipulate vectors in R
+* Be able to create and manipulate dataframes in R
+* Be able to use variables in arithmetic functions in R
+
+
+***
+
+
+**For this lab, you should begin by reading the accompanying primer and referring to your notes from in-class tutorials and in-class activities.**
+
+
+
+Run this code chunk before you start each session. You do not yet need to understand it.
+```{r}
+#| label: setup
+
+library(tidyverse)
+library(mosaic)
+library(ggformula)
+```
+
+
+## Part 1: Data Organization 
+
+### 1.1. 
+
+Is this block of raw data organized correctly? Why?  
+                     
+Length (mm)   | Sex                 
+------------- | -------------        
+145 mm        | F                    
+163 mm        | F                     
+132 mm        | M                    
+143 mm        | M                    
+
+> Insert answer here  
+
+
+### 1.2. 
+
+Is this block of raw data organized correctly? Why? 
+
+Info         | A       | B       | C       | D     
+------------ | ------- | ------- | ------- | -------  
+Length       | 145     | 163     |  132    |  143     
+Sex          | F       | F       |  M      |  M  
+
+> Insert answer here   
+
+
+
+***
+
+## Part 2: Steph Curry
+
+Stephen Curry is one of the most prolific scorers currently in the NBA. We are interested in the number of points he scores across his entire career, from college to present day. The data of the number of points Stephen Curry scored during each regular season game from 2024-2025 can be found in `curry2024.csv`.    
+
+
+### 2.1. 
+
+Identify the population and the sample.  
+
+a. Stephen Curry  
+b. all NBA games  
+c. all NBA games in the 2024-2025 season  
+d. all games played by Curry   
+e. all games played by Curry in the 2024-2025 season  
+f. all points scored by Curry   
+
+> The population of interest is ... <insert letter answer here>.  
+> The sample is ... <insert letter answer here>.  
+
+
+### 2.2. 
+
+Identify the variable type for *number of points scored by Curry*.  
+
+a. qualitative nominal  
+b. qualitative ordinal  
+c. quantitative discrete  
+d. quantitative continuous   
+
+> Insert answer here
+
+
+### 2.3. 
+
+Read in the csv file `curry2024.csv` and store it as the object `curry` by modifying the code below to fill in each blank. Some blanks in this lab will have hints to the code you need written in the blanks like this: ___hint___ (that entire phrase, including underscores, is replaced). After reading in your data, it is a good habit to always use the function `names()` on your dataframe object to see the names of the variables.
+
+```{r}
+#| label: import-curry-data
+
+curry <- ___goal___("___file___")
+names(curry) # will print out the variable names
+```
+
+
+### 2.4. 
+
+Find the mean number of points Curry scored in 2015 from the selected games by modifying the code below to replace the blanks with the correct code. If your answer looks strange but your code didn't produce an error, continue to the next question.
+
+```{r}
+#| label: calculate-mean-score
+
+___goal___(~ ___variable___, data = ___dataframe___)
+```
+
+If you are confused, keep reading through 2.6...
+
+
+### 2.5. 
+
+Insert a code chunk and write the code to print your raw data as the output. (Hint: refer to the Lab 1 primer.) Why do you think you got the answer you did in 2.4? Hint: You may need to scroll through a couple rows of the data.  
+
+<Insert code chunk here>
+
+> Insert answer here
+
+
+### 2.6. 
+
+We need to add an argument to `mean()` to calculate the mean number of points in games Curry played. The games he didn't play are coded with an `NA`. We need to tell R to ignore them for the sake of the `mean()` function. The argument we need to use to do that is called `na.rm`. Modify the code below to name the second argument. What is the mean number of points Curry scores per game in which he plays?
+
+```{r}
+#| label: calcuate-mean-score-na
+
+mean(~Point, data = curry, ___option___ = TRUE)
+```
+
+> Insert answer here  
+
+
+### 2.7. 
+
+Is the quantity you calculated in the previous question a parameter or a statistic? Explain your answer.  
+
+> Insert answer here   
+
+
+### 2.8. 
+
+Correct the following codes so that they do not return errors. 
+
+```{r}
+#| label: error-1
+
+sum(~ point, data = curry)
+```
+
+> Describe the issue you corrected here.
+
+
+```{r}
+#| label: error-2
+
+length(curry$Game
+```
+
+> Describe the issue you corrected here.
+
+
+```{r}
+#| label: error-3
+
+mean(~ Point, data = curry na.rm = TRUE)
+```
+
+> Describe the issue you corrected here.
+
+
+
+***
+
+## Part 3: Snowy Plover Population Sizes   
+
+Snowy plovers are small shorebirds which actively forage for invertebrates along the shore. The Pacific coast subspecies of the western snowy plover was federally listed as a threatened species in 1993. The number of Pacific plovers has declined due to many factors, largely habitat modification from beachfront development and recreation, especially during nesting. The dramatic decline led the US Fish and Wildlife Service (USFWS) to implement a recovery and restoration program in 2007. We are interested in exploring the number of Pacific western snowy plover in the years since the restoration program began.
+
+The USFWS monitors the number of western snowy plover yearly across the Pacific coast (California, Oregon, Washington). The data of the number of individuals seen in each Pacific coast state during each breeding season survey from 2007 to 2020 can be found in `SNPLBreedingSurveyPacificCoast.csv`.   
+ 
+
+### 3.1. 
+
+What is the population and sample for this scenario?  
+
+> Population: <insert answer here>  
+> Sample: <insert answer here>    
+  
+
+### 3.2. 
+
+Modify the code chunk below to read in your data and store it as `plover`. Then modify the second line to print out *just* the variable names. 
+
+```{r}
+#| label: read-plover-data
+
+plover <- ___add code here___
+___add goal here___(fire)
+```
+
+
+### 3.3. 
+
+What is the mean number of plovers seen from 2007 to 2020 in California? Insert a code chunk and write the appropriate code to answer the question. Recall, you can enter a code chunk by using the following shortcuts: for Windows OS press <Ctrl+Alt+I>; for Mac OS <Cmd+Opt+I>.  
+
+< Insert code chunk here >  
+
+
+### 3.4. 
+
+Which state, Washington or Oregon, had the most plovers seen in a single year? Use the function `max()` (uses the formula template) to answer this question. (Hint: you should be using more than one line of code here.)    
+
+< Insert code chunk here >
+
+> Insert answer here  
+
+
+### 3.5. 
+
+How many plovers were seen from 2007-2020 in California?   
+
+< Insert code chunk here >
+
+> Insert answer here  
+
+
+### 3.6. 
+
+Researchers are interested in the total number of plovers seen in the breeding season for each year across all states. Add across vectors within each element and store the new vector as the object `total`. Print `total` to screen to see the total plovers seen each year. (Reminder: If you don't recall how to do something, you should refer to the primer from Lab #1.)  
+
+< Insert code chunk here >
+
+
+
+***
+
+## Part 4: Nest Watch
+
+The Cornell School of Ornithology collects citizen science data on bird nesting. The nationwide nest-monitoring program is designed to track status and trends in the reproductive biology of birds. The protocol has nests visited every 3 days and recording information about clutch size, the number of hatchlings and fledglings (hatchlings are birds that hatch from eggs; fledglings are birds that survive to 'fledge' -- leave the nest). Your friend was trained on collecting nesting data, but isn't sure how to enter it into an electronic file for the summary of nesting data (you can ignore the breading data table part of the field sheet). Their field sheet is in the file `NestDataSheet_210617.pdf`.    
+
+
+### 4.1. 
+
+Create a spreadsheet (.csv) of the data from the field sheets in the file "NestDataSheet_210617.pdf". *Think -- what is my individual unit? What were the characteristics measured on each unit? Now organize that according to the tidy data structures you learned*
+
+You must include relevant information on nesting summary, as well as the associated metadata for the nest. Metadata (literally 'beyond data') is the other relevant information associated with the variables measured on your cases. Part of the assignment is determining what should be included.  
+
+You can enter the data in Excel (or other spreadsheet program), but be sure to save your file as a .csv (comma separated value; do not save it as a CSV UTF-8 file, a Macintosh csv or a MS dos csv--you want the regular CSV file called "Comma Separated Value (.csv)"). *(Note: you cannot have spaces in your vector/variable names; periods and underscores are the only symbols allowed.)* 
+
+Name the file according to the file naming convention, with the suffix "_invert-data.csv" (So Monte Rey would name his .csv file "ReyM_invert-data.csv".) Upload the file to your project on the server. You will need to select this file to export along with your .qmd, .html, and .rproj files to turn in for this lab.
+
+
+Now check to see that your file renders by clicking the button 'Render' at the top of this pane. If you have an error in your code, the file will not render and will show you where the error is occurring so you can fix it. Rendering to html will appear in the 'Viewer' tab in your "Files" pane if you click the gear tab and select "Preview in Viewer Pane." Recall that you MUST turn in a rendered .html with your lab; see the General Lab Instructions or the R Orientation Video Tutorials on rendering if you have trouble. 
