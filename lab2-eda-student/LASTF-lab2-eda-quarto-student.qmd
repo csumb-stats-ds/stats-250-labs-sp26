@@ -7,7 +7,7 @@ html-math-method: mathml
 execute: 
   warning: false
   echo: true
-  error: false
+  error: true
 ---
 
 ## Before you start:
@@ -346,14 +346,14 @@ Describe the shape of your distribution. Based on the shape of the distribution,
 
 ### 3.7
 
-What percentage of countries have a medal ratio of more than 1 medal per games?   
+What percentage of countries have a medal ratio of at least 0.927 medals per games?   
 
 > Insert answer here.  
 
 
 ### 3.8
 
-Do more countries have a medal ratio below 0 compared to those with a medal ratio above 0? Explain your answer.   
+Do more countries have a medal ratio at or below 0 compared to those with a medal ratio at or above 0? Explain your answer.   
 
 > Insert answer here.  
 
