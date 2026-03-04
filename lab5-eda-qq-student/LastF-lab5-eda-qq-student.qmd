@@ -221,7 +221,7 @@ Calculate the relevant summary statistics. Annotate your code using `#` to descr
 < Insert code chunk here >  
 
 
-Symbols   |   Outisde     |  Within        
+Symbols   |   Newborn     |  Adult        
 ----------|---------------|---------------
 $n$       | [placeholder] | [placeholder]              
 $\bar{x}$ | [placeholder] | [placeholder] 
