@@ -231,7 +231,7 @@ TRUE or FALSE (Bold your answer). Both males and females seem to be responding t
 
 ### 1.14. 
 
-TRUE or FALSE (Bold your answer). We could use these equations to predict brain weights beyond the scope of the values of the explanatory variable collected, such as predicting the brain weight for a healthy female adult with a head size of 5000 grams.  
+TRUE or FALSE (Bold your answer). We could use these equations to predict brain weights beyond the scope of the values of the explanatory variable collected, such as predicting the brain weight for a healthy female adult with a head size of 5000 cm^3^.  
 
 
 ### 1.15. 
